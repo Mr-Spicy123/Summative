@@ -9,7 +9,7 @@ public class XBoxSX extends Product{
   private static final double XboxSXPrice = 649.99;
   private static final int expandedWidth = 525;
   private static final int   expandedHeight = 525;
-  private static final ImageIcon XboxSXImage = new ImageIcon("C:\\Users\\jacks\\OneDrive\\CS_Summative_Images\\XboxSX.jpg");
+  private static final ImageIcon XboxSXImage = new ImageIcon("images/XboxSX.jpg");
   private static final ImageIcon XboxSXScaledImage = ImageIconScaler.scaleImageIcon(XboxSXImage, expandedWidth, expandedHeight);
   private static final String[] detailXboxSX = {"The Xbox Series X is the greatest ", "Xbox gaming console and is overall ", "a top-competitor."};
   public XBoxSX(){

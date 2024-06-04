@@ -9,7 +9,7 @@ public class XBoxSS extends Product {
   private static final double XBoxSSPrice = 379.99;
   private static final int expandedWidth = 525;
   private static final int   expandedHeight = 525;
-  private static final ImageIcon XBoxSSImage = new ImageIcon("C:\\Users\\jacks\\OneDrive\\CS_Summative_Images\\XBoxSS.jpg");
+  private static final ImageIcon XBoxSSImage = new ImageIcon("images/XBoxSS.jpg");
   private static final ImageIcon XBoxSSScaledImage = ImageIconScaler.scaleImageIcon(XBoxSSImage, expandedWidth, expandedHeight);
   private static final String[] detailXBoxSS = {"The Xbox Series S has an unbeatable ", "price to performance ratio. Despite ", "the low price, this console is a ", "top-competitor."};
   public XBoxSS(){

@@ -10,7 +10,7 @@ public class PS5 extends Product{
   private static final double PS5Price = 679.99;
   private static final int expandedWidth = 525;
   private static final int   expandedHeight = 525;
-  private static final ImageIcon PS5Image = new ImageIcon("C:\\Users\\jacks\\OneDrive\\CS_Summative_Images\\PS5.jpg");
+  private static final ImageIcon PS5Image = new ImageIcon("images/PS5.jpg");
   private static final ImageIcon PS5ScaledImage = ImageIconScaler.scaleImageIcon(PS5Image, expandedWidth, expandedHeight);
 
   private static final String[] detailPS5 = {"The PlayStation 5 is the latest console ", "from Sony with incredible capabilities ", "from graphics, to performance."};

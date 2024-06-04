@@ -9,7 +9,7 @@ public class OculusQuest3 extends Product {
   private static final double OculusQuest3Price = 1499.99;
   private static final int expandedWidth = 525;
   private static final int   expandedHeight = 525;
-  private static final ImageIcon OculusQuest3Image = new ImageIcon("C:\\Users\\jacks\\OneDrive\\CS_Summative_Images\\OculusQuest3.jpg");
+  private static final ImageIcon OculusQuest3Image = new ImageIcon("images/OculusQuest3.jpg");
   private static final ImageIcon OculusQuest3ScaledImage = ImageIconScaler.scaleImageIcon(OculusQuest3Image, expandedWidth, expandedHeight);
   private static final String[] detailOculusQuest3 = {"The newest VR headset of the Oculus ", "Quest line has remarkable capabilities ", "and for less than half of the price ", "of its competitors."};
   public OculusQuest3(){

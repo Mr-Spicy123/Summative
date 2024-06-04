@@ -10,10 +10,10 @@ public class GUI {
 
     //ImageIcons
     //no data image
-    ImageIcon test_image = new ImageIcon("C:\\Users\\jacks\\OneDrive\\CS_Summative_Images\\noDataImage.jpg");
+    ImageIcon test_image = new ImageIcon("images/noDataImage.jpg");
 
     //images for categories
-    ImageIcon gamingImage = new ImageIcon("C:\\Users\\jacks\\OneDrive\\CS_Summative_Images\\gaming - Copy.png");
+    ImageIcon gamingImage = new ImageIcon("images/gaming - Copy.png");
 
     //Display product objects represent the features of each product
     //One object is made for every product

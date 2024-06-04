@@ -9,7 +9,7 @@ public class GamingPC extends Product {
   private static final double GamingPCPrice = 1499.99;
   private static final int expandedWidth = 525;
   private static final int   expandedHeight = 525;
-  private static final ImageIcon GamingPCImage = new ImageIcon("C:\\Users\\jacks\\OneDrive\\CS_Summative_Images\\GamingPC.jpg");
+  private static final ImageIcon GamingPCImage = new ImageIcon("images/GamingPC.jpg");
   private static final ImageIcon GamingPCScaledImage = ImageIconScaler.scaleImageIcon(GamingPCImage, expandedWidth, expandedHeight);
   private static final String[] detailGamingPC = {"This is THE top-notch gaming desktop ", "With the latest graphics card, the ", "Nvidia GeForce 4060 RTX, the ", "capabilities of this machine are truly ", "unbeatable!"};
   public GamingPC(){
