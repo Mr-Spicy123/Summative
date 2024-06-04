@@ -3,8 +3,6 @@ package src;
 import java.io.*;
 
 public class Writer {
-  public Writer() throws IOException {
-  }
 
   //method to write to the UserBalance.txt file
   public static void writeUserBalance(String subject) {

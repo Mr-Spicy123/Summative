@@ -3,6 +3,7 @@ package src;
 
 public class Tester {
   public static void main(String[] args) {
-    new GUI();
+    //Writer.writeUserInfo("hello world!");
+    System.out.println(Reader.readLastUserInfo());
   }
 }
