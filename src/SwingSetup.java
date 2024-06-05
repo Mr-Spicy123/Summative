@@ -46,4 +46,10 @@ public class SwingSetup {
     button.setOpaque(opaque);
     button.setFocusable(focusable);
   }
+
+  public static void setupTextField(JTextField field, JPanel panel, int x, int y, int width, int height, boolean opaque) {
+    panel.add(field);
+    field.setBounds(x, y, width, height);
+    field.setOpaque(opaque);
+  }
 }

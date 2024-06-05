@@ -1,13 +1,20 @@
 package src;
 
 import java.io.*;
+import java.nio.Buffer;
+
 public class Reader {
 
-  public static int getNumLinesUserBalance() {
-    String line = "";
+  static String emailFile = "Emails.txt";
+  static String passwordsName = "Passwords.txt";
+  static String usernames = "Usernames.txt";
+  static String balance = "UserBalance.txt";
+
+  public static int getNumLines(String file) {
+    String line;
     int counter = 0;
     try {
-      FileReader fr = new FileReader("UserBalance.txt");
+      FileReader fr = new FileReader(file);
       BufferedReader br = new BufferedReader(fr);
       line = br.readLine();
       while (line != null) {
@@ -16,34 +23,16 @@ public class Reader {
       }
       br.close();
     }catch(IOException e) {
-      System.err.println("IO");
+      System.err.println("lines IO");
     }
     return counter;
   }
 
-  public static int getNumLinesUserInfo() {
+  public static String readLast(String file) {
     String line = "";
-    int counter = 0;
+    int fileLength = getNumLines(file);
     try {
-      FileReader fr = new FileReader("UserInfo.txt");
-      BufferedReader br = new BufferedReader(fr);
-      line = br.readLine();
-      while (line != null) {
-        counter++;
-        line = br.readLine();
-      }
-      br.close();
-    }catch(IOException e) {
-      System.err.println("IO");
-    }
-    return counter;
-  }
-
-  public static String readLastUserBalance() {
-    String line = "";
-    int fileLength = getNumLinesUserBalance();
-    try {
-      FileReader fr = new FileReader("UserBalance.txt");
+      FileReader fr = new FileReader(file);
       BufferedReader br = new BufferedReader(fr);
       for (int i = 0; i < fileLength; i++) {
         line = br.readLine();
@@ -55,52 +44,44 @@ public class Reader {
     return line;
   }
 
-  public static String readLastUserInfo() {
+  public static String readThisLine(int l, String file) {
     String line = "";
-    int fileLength = getNumLinesUserInfo();
     try {
-      FileReader fr = new FileReader("UserInfo.txt");
+      FileReader fr = new FileReader(file);
+      BufferedReader br = new BufferedReader(fr);
+      for (int i = 0; i < l; i++) {
+        line = br.readLine();
+      }
+    }catch(IOException e) {
+      System.err.println("this line IO");
+    }
+    return line;
+  }
+  public static boolean fileFinder(String userEmail, String password, String file) {
+    //file can either be username.txt or emails.txt
+    String line = "";
+    int counter = 0;
+    int fileLength = getNumLines(file);
+    System.out.println(fileLength);
+    try {
+      FileReader fr = new FileReader(file);
       BufferedReader br = new BufferedReader(fr);
       for (int i = 0; i < fileLength; i++) {
-        line = br.readLine();
+        counter++;
+        if (br.readLine().equals(userEmail)) {
+          String pass = readThisLine(counter, passwordsName);
+          if (password.equals(pass)) {
+            return true;
+          }
+          return false;
+        }
       }
       br.close();
     }catch(IOException e) {
-      System.err.println("IO");
+      System.err.println("file finder IO: " + e.getMessage());
     }
-    return line;
+    return false;
   }
-
-  public static String readThisLineUserInfo(int lineNum) {
-    String line = "";
-    try {
-      FileReader fr = new FileReader("UserInfo.txt");
-      BufferedReader br = new BufferedReader(fr);
-      for (int i = 0; i < lineNum; i++) {
-        line = br.readLine();
-      }
-      br.close();
-    }catch(IOException e) {
-      System.err.println("IO");
-    }
-    return line;
-  }
-
-  public static String readThisLineUserBalance(int lineNum) {
-    String line = "";
-    try {
-      FileReader fr = new FileReader("UserBalance.txt");
-      BufferedReader br = new BufferedReader(fr);
-      for (int i = 0; i < lineNum; i++) {
-        line = br.readLine();
-      }
-      br.close();
-    }catch(IOException e) {
-      System.err.println("IO");
-    }
-    return line;
-  }
-
 
 
   //reads first line of file (not useful)
