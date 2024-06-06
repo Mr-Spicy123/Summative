@@ -59,6 +59,10 @@ public class LoginFrame {
               emailUsername.setText("");
               password.setText("");
               break;
+            case "forgot password":
+              new verificationFrame();
+              loginFrame.setVisible(false);
+              break;
           }
         }
       }
@@ -87,6 +91,9 @@ public class LoginFrame {
     SwingSetup.setupButton(enterButton, objectPanel, 1100, 490, 375, 175, false, false);
     enterButton.addActionListener(listener);
 
+    JButton forgotPasswordButton = new JButton("forgot password");
+    SwingSetup.setupButton(forgotPasswordButton, objectPanel, 1135, 720, 325, 125, false, false);
+    forgotPasswordButton.addActionListener(listener);
 
     SwingSetup.setupTextField(emailUsername, objectPanel, 560, 438, 400, 75, true);
     emailUsername.setFont(font);
