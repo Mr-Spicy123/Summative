@@ -1,7 +1,7 @@
 package src;
 import java.io.*;
-public class ChromeOpener {
-  public static void main(String[] args) {
+public class AppOpener {
+  public static void openGmail() {
     try {
       String chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
       String profileDirectory = "Default";

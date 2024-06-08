@@ -83,6 +83,24 @@ public class Reader {
     return false;
   }
 
+  public static boolean isInSystem(String email) {
+    String line = "";
+    int fileLength = getNumLines(emailFile);
+    try {
+      FileReader fr = new FileReader(emailFile);
+      BufferedReader br = new BufferedReader(fr);
+      for (int i = 0; i < fileLength; i++) {
+        line = br.readLine();
+        if (line.equals(email)) {
+          return true;
+        }
+      }
+      br.close();
+    }catch(IOException e) {
+      System.err.println("IO");
+    }
+    return false;
+  }
 
   //reads first line of file (not useful)
   /*public static String readUserBalance() {

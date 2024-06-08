@@ -10,7 +10,7 @@ public class verificationFrame {
   Font font = new Font("Ariel", Font.BOLD, 35);
   ActionListener listener;
   JFrame verificationFrame = new JFrame();
-  JTextField emailUsername = new JTextField();
+  JTextField email = new JTextField();
 
   public verificationFrame() {
 
@@ -27,7 +27,13 @@ public class verificationFrame {
               verificationFrame.setVisible(false);
               break;
             case "enter":
-              //String
+              if (Reader.isInSystem(email.getText())) {
+                SendEmail.send(email.getText(), "Verification", "here is your verification code:" + "12345");
+                AppOpener.openGmail();
+              }
+              else {
+                JOptionPane.showMessageDialog(null, "This email is not linked to an account");
+              }
               break;
           }
         }
@@ -51,9 +57,9 @@ public class verificationFrame {
     SwingSetup.setupButton(enterButton, objectPanel, 1080, 415, 325, 125, false, false);
     enterButton.addActionListener(listener);
 
-    emailUsername = new JTextField();
-    SwingSetup.setupTextField(emailUsername, objectPanel, 567, 440, 385, 75, true);
-    emailUsername.setFont(font);
+    email = new JTextField();
+    SwingSetup.setupTextField(email, objectPanel, 567, 440, 385, 75, true);
+    email.setFont(font);
 
     SwingSetup.setupFrame(verificationFrame, 0, 0, 1536, 864, false, null);
 
