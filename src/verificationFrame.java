@@ -28,8 +28,13 @@ public class verificationFrame {
               break;
             case "enter":
               if (Reader.isInSystem(email.getText())) {
-                SendEmail.send(email.getText(), "Verification", "here is your verification code:" + "12345");
+                verificationFrame.setVisible(false);
+                VerificationCode v = new VerificationCode();
+                new EnterCodeFrame(v, email.getText());
+                String code = v.getCode();
                 AppOpener.openGmail();
+                SendEmail.send(email.getText(), "Spice-E-Store Verification", "Here is your verification code: " + code.toUpperCase());
+
               }
               else {
                 JOptionPane.showMessageDialog(null, "This email is not linked to an account");
