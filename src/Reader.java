@@ -6,9 +6,9 @@ import java.nio.Buffer;
 public class Reader {
 
   static String emailFile = "Emails.txt";
-  static String passwordsName = "Passwords.txt";
-  static String usernames = "Usernames.txt";
-  static String balance = "UserBalance.txt";
+  static String passwordsFile = "Passwords.txt";
+  static String usernameFile = "Usernames.txt";
+  static String balanceFile = "UserBalance.txt";
 
   public static int getNumLines(String file) {
     String line;
@@ -22,7 +22,7 @@ public class Reader {
         line = br.readLine();
       }
       br.close();
-    }catch(IOException e) {
+    } catch (IOException e) {
       System.err.println("lines IO");
     }
     return counter;
@@ -38,7 +38,7 @@ public class Reader {
         line = br.readLine();
       }
       br.close();
-    }catch(IOException e) {
+    } catch (IOException e) {
       System.err.println("IO");
     }
     return line;
@@ -52,11 +52,12 @@ public class Reader {
       for (int i = 0; i < l; i++) {
         line = br.readLine();
       }
-    }catch(IOException e) {
+    } catch (IOException e) {
       System.err.println("this line IO");
     }
     return line;
   }
+
   public static boolean fileFinder(String userEmail, String password, String file) {
     //file can either be username.txt or emails.txt
     String line = "";
@@ -69,7 +70,7 @@ public class Reader {
       for (int i = 0; i < fileLength; i++) {
         counter++;
         if (br.readLine().equals(userEmail)) {
-          String pass = readThisLine(counter, passwordsName);
+          String pass = readThisLine(counter, passwordsFile);
           if (password.equals(pass)) {
             return true;
           }
@@ -77,7 +78,7 @@ public class Reader {
         }
       }
       br.close();
-    }catch(IOException e) {
+    } catch (IOException e) {
       System.err.println("file finder IO: " + e.getMessage());
     }
     return false;
@@ -96,11 +97,43 @@ public class Reader {
         }
       }
       br.close();
-    }catch(IOException e) {
+    } catch (IOException e) {
       System.err.println("IO");
     }
     return false;
   }
+
+  public static String[] getArrayPassword() {
+    String[] passes = new String[getNumLines(passwordsFile)];
+    try {
+      FileReader fr = new FileReader(passwordsFile);
+      BufferedReader br = new BufferedReader(fr);
+      for (int i = 0; i < getNumLines(passwordsFile); i++) {
+        passes[i] = br.readLine();
+      }
+    } catch (IOException e) {
+      System.err.println("IO");
+    }
+    return passes;
+  }
+
+  public static int findIndex(String subject, String file) {
+    try {
+      FileReader fw = new FileReader(file);
+      BufferedReader br = new BufferedReader(fw);
+      int counter = 0;
+      for (int i = 0; i < getNumLines(file); i++) {
+        String line = br.readLine();
+        counter++;
+        if (line.equals(subject)) {
+          return counter;
+        }
+      }
+    } catch (IOException e) {
+    }
+    return -1;
+  }
+
 
   //reads first line of file (not useful)
   /*public static String readUserBalance() {

@@ -31,7 +31,7 @@ public class EnterCodeFrame {
               break;
             case "enter":
               if (code.getText().toLowerCase().equals(veri.getCode())) {
-                new ChangePasswordFrame();
+                new ChangePasswordFrame(to);
                 enterCodeFrame.setVisible(false);
               } else {
                 JOptionPane.showMessageDialog(null, "Incorrect code");
@@ -69,9 +69,7 @@ public class EnterCodeFrame {
     SwingSetup.setupButton(resendButton, objectPanel, 500, 735, 550, 90, false, false);
     resendButton.addActionListener(listener);
 
-    code = new
-
-            JTextField();
+    code = new JTextField();
     SwingSetup.setupTextField(code, objectPanel, 150, 350, 735, 160, true);
     code.setFont(font);
 

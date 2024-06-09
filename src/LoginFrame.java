@@ -38,7 +38,7 @@ public class LoginFrame {
               System.out.println("user/email: " + userEmail + "\npassword: " + pass);
               //if not an email
               if (!userEmail.contains("@") && !userEmail.contains(".")) {
-                  if (Reader.fileFinder(userEmail, pass, Reader.usernames)) {
+                  if (Reader.fileFinder(userEmail, pass, Reader.usernameFile)) {
                     new CategoryDisplay();
                     loginFrame.setVisible(false);
                   }

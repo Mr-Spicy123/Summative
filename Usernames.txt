@@ -1,4 +1,2 @@
-test
-check
-something
-JacksonIsCool123
+schooljackson
+Jackson
