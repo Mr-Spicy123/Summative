@@ -24,7 +24,8 @@ public class StartFrame {
               startFrame.setVisible(false);
               break;
             case "signup":
-              System.out.println("make account");
+              new SignupFrame();
+              startFrame.setVisible(false);
           }
         }
       }

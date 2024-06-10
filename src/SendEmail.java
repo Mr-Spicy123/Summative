@@ -13,7 +13,7 @@ public class SendEmail {
     String recipient = to;
 
     String host = "smtp.gmail.com";
-    int port = 587;
+    //int port = 587;
 
     Properties props = new Properties();
     props.put("mail.smtp.auth", "true");
@@ -21,7 +21,7 @@ public class SendEmail {
     props.put("mail.smtp.host", host);
     props.put("mail.smtp.port", "587");
     props.put("mail.smtp.ssl.trust", host);
-    props.put("mail.debug", "true");
+    //props.put("mail.debug", "true");
 
     /*props.put("mail.smtp.connectiontimeout", "10000");
     props.put("mail.smtp.timeout", "10000");

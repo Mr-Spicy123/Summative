@@ -33,7 +33,19 @@ public class ChangePasswordFrame {
               if (pass1.equals(pass2)) {
                 if (AccountRequirements.checkPassword(pass1)){
                   RewritePasswordFile.switchPassword(to, pass1);
+                  new LoginFrame();
+                  changePassFrame.setVisible(false);
                 }
+                else {
+                  JOptionPane.showMessageDialog(null, "New password does not meet requirements");
+                  password1.setText("");
+                  password2.setText("");
+                }
+              }
+              else {
+                JOptionPane.showMessageDialog(null, "Passwords do not match");
+                password1.setText("");
+                password2.setText("");
               }
           }
         }
