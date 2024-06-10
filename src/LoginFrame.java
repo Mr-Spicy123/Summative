@@ -35,7 +35,6 @@ public class LoginFrame {
             case "enter":
               String userEmail = emailUsername.getText();
               String pass = password.getText();
-              System.out.println("user/email: " + userEmail + "\npassword: " + pass);
               //if not an email
               if (!userEmail.contains("@") && !userEmail.contains(".")) {
                   if (Reader.fileFinder(userEmail, pass, Reader.usernameFile)) {

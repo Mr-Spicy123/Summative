@@ -11,7 +11,7 @@ public class ChangePasswordFrame {
   JFrame changePassFrame = new JFrame();
   ActionListener listener;
   JTextField password1 = new JTextField();
-  JTextField password2 = new JTextField();
+  JTextField password2 = new JPasswordField();
 
 
   public ChangePasswordFrame(String to) {

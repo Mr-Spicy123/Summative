@@ -63,7 +63,6 @@ public class Reader {
     String line = "";
     int counter = 0;
     int fileLength = getNumLines(file);
-    System.out.println(fileLength);
     try {
       FileReader fr = new FileReader(file);
       BufferedReader br = new BufferedReader(fr);
