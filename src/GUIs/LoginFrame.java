@@ -53,7 +53,7 @@ public class LoginFrame {
               //if an email
               else {
                   if (Reader.fileFinder(userEmail, pass, Reader.emailFile)) {
-                    new CategoryDisplayFrame(Website.getCategories());
+                    new CategoryDisplayFrame(ObjectCreation.getCategories());
                     loginFrame.setVisible(false);
                   }
                   else {

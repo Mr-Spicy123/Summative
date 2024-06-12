@@ -46,6 +46,7 @@ public class SwingSetup {
     button.setBounds(x, y, width, height);
     button.setOpaque(opaque);
     button.setFocusable(focusable);
+    button.addActionListener(listener);
   }
 
   public static void setupInvisibleButton(JButton button, JPanel panel, ActionListener listener, int x, int y, int width, int height, boolean opaque, boolean focusable) {
@@ -57,6 +58,7 @@ public class SwingSetup {
     button.setForeground(new Color(0, 0, 0, 0));
     panel.add(button);
     button.setBounds(x, y, width, height);
+    button.addActionListener(listener);
   }
 
   public static void setupTextField(JTextField field, JPanel panel, int x, int y, int width, int height, boolean opaque) {

@@ -29,7 +29,7 @@ public class CategoryDisplayFrame implements KeyListener {
 
   Font searchFieldFont = new Font("Arial", Font.BOLD, 40);
   static JFrame categoryDisplayFrame = new JFrame();
-  ActionListener listener;
+  static ActionListener listener;
   JTextField searchField = new JTextField();
   JScrollPane categoryScrollPane = new JScrollPane();
   static JPanel objectPanel = new JPanel();
@@ -66,6 +66,10 @@ public class CategoryDisplayFrame implements KeyListener {
               break;
             case "back":
               new StartFrame();
+              categoryDisplayFrame.setVisible(false);
+              break;
+            case "view cart":
+              new cartViewFrame();
               categoryDisplayFrame.setVisible(false);
           }
         }
@@ -196,6 +200,7 @@ public class CategoryDisplayFrame implements KeyListener {
         image = categories[i].getImageRoot();
         imageButton = new JButton(image);
         imageButton.setText("category");
+        imageButton.addActionListener(listener);
         buttons[i] = imageButton;
         itemNames[i] = itemNameLabel;
         objectPanel.add(imageButton);
@@ -256,6 +261,7 @@ public class CategoryDisplayFrame implements KeyListener {
       image = categories[i].getImageRoot();
       imageButton = new JButton(image);
       imageButton.setText("category");
+      imageButton.addActionListener(listener);
       buttons[i] = imageButton;
       itemNames[i] = itemNameLabel;
       objectPanel.add(imageButton);
@@ -312,6 +318,7 @@ public class CategoryDisplayFrame implements KeyListener {
       image = categories[i].getImageRoot();
       imageButton = new JButton(image);
       imageButton.setText("category");
+      imageButton.addActionListener(listener);
       buttons[i] = imageButton;
       itemNames[i] = itemNameLabel;
       objectPanel.add(imageButton);
