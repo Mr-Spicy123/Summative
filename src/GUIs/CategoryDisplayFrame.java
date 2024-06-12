@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Arrays;
 
 public class CategoryDisplayFrame implements KeyListener {
 
@@ -46,6 +47,7 @@ public class CategoryDisplayFrame implements KeyListener {
       categories[i] = c[i];
     }
     buttons = new JButton[length];
+    objectPanel.removeAll();
 
     listener = new ActionListener() {
       @Override
@@ -54,22 +56,22 @@ public class CategoryDisplayFrame implements KeyListener {
         if (source instanceof JButton) {
           JButton button = (JButton) source;
           String currentItem = "";
-          switch (button.getText()) {
-            case "category":
-              for (int i = 0; i < categories.length; i++) {
-                //if the button that was pressed is equal to the id of the buttons at i
-                if (e.getSource() == buttons[i]) {
-                  new ProductDisplayFrame(categories[i].getItems());
-                  categoryScrollPane.setVisible(false);
-                }
-              }
+          System.out.println(button.getText());
+          for (int i = 0; i<buttons.length; i++) {
+            System.out.println(button.getText().equals(Integer.toString(i)));
+            if (button.getText().equals(Integer.toString(i))) {
+              new ProductDisplayFrame(categories[i].getItems());
+              categoryDisplayFrame.setVisible(false);
               break;
+            }
+          }
+          switch (button.getText()) {
             case "back":
               new StartFrame();
               categoryDisplayFrame.setVisible(false);
               break;
             case "view cart":
-              new cartViewFrame();
+              new CartViewFrame();
               categoryDisplayFrame.setVisible(false);
           }
         }
@@ -118,12 +120,13 @@ public class CategoryDisplayFrame implements KeyListener {
 
     categoryScrollPane.setVisible(true);
 
-    setCategoriesDisplay();
+
 
     SwingSetup.setupFrame(categoryDisplayFrame, 0, 0, 1536, 864, false, null);
     categoryDisplayFrame.setContentPane(categoryScrollPane);
-    categoryDisplayFrame.setVisible(true);
 
+    categoryDisplayFrame.setVisible(true);
+    setCategoriesDisplay();
     //show the frame with all the categories osn it
 
 
@@ -158,21 +161,7 @@ public class CategoryDisplayFrame implements KeyListener {
   }
 
   public static void searchCategories(String search) {
-    //initial x and y coordinates for image placement
-    xPos = 75;
-    yPos = 150;
-
-//dimensions for labels and buttons
-    nameLabelWidth = 225;
-    nameLabelHeight = 25;
-
-    imageButtonWidth = 225;
-    imageButtonHeight = 225;
-
-//rowCounter to make a row cap
-    rowCounter = 0;
-    maxRowCount = 5;
-
+    setVariables();
 
     //declare JLabels, ImageIcons and Fonts
     ImageIcon image;
@@ -199,7 +188,6 @@ public class CategoryDisplayFrame implements KeyListener {
         //place images
         image = categories[i].getImageRoot();
         imageButton = new JButton(image);
-        imageButton.setText("category");
         imageButton.addActionListener(listener);
         buttons[i] = imageButton;
         itemNames[i] = itemNameLabel;
@@ -220,21 +208,16 @@ public class CategoryDisplayFrame implements KeyListener {
   }
 
   public static void resetCategoriesDisplay() {
-    //initial x and y coordinates for image placement
-    xPos = 75;
-    yPos = 150;
+    for (int i = 0; i < categories.length; i++) {
+      objectPanel.remove(itemNames[i]);
+      objectPanel.remove(buttons[i]);
+    }
+    setCategoriesDisplay();
 
-//dimensions for labels and buttons
-    nameLabelWidth = 225;
-    nameLabelHeight = 25;
+  }
 
-    imageButtonWidth = 225;
-    imageButtonHeight = 225;
-
-//rowCounter to make a row cap
-    rowCounter = 0;
-    maxRowCount = 5;
-
+  public static void setCategoriesDisplay() {
+    setVariables();
 
     //declare JLabels, ImageIcons and Fonts
     ImageIcon image;
@@ -243,10 +226,7 @@ public class CategoryDisplayFrame implements KeyListener {
     //array of buttons to store each button in
     Font font = new Font("Arial", Font.BOLD, 24);
 
-    for (int i = 0; i < categories.length; i++) {
-      objectPanel.remove(itemNames[i]);
-      objectPanel.remove(buttons[i]);
-    }
+
     //for loop to place images and names
     for (int i = 0; i < categories.length; i++) {
       //place item names
@@ -260,7 +240,7 @@ public class CategoryDisplayFrame implements KeyListener {
       //place images
       image = categories[i].getImageRoot();
       imageButton = new JButton(image);
-      imageButton.setText("category");
+      imageButton.setText(Integer.toString(i));
       imageButton.addActionListener(listener);
       buttons[i] = imageButton;
       itemNames[i] = itemNameLabel;
@@ -279,7 +259,7 @@ public class CategoryDisplayFrame implements KeyListener {
     categoryDisplayFrame.repaint();
   }
 
-  public static void setCategoriesDisplay() {
+  public static void setVariables() {
     //initial x and y coordinates for image placement
     xPos = 75;
     yPos = 150;
@@ -295,45 +275,6 @@ public class CategoryDisplayFrame implements KeyListener {
     rowCounter = 0;
     maxRowCount = 5;
 
-
-    //declare JLabels, ImageIcons and Fonts
-    ImageIcon image;
-    JLabel itemNameLabel;
-    JButton imageButton;
-    //array of buttons to store each button in
-    Font font = new Font("Arial", Font.BOLD, 24);
-
-
-    //for loop to place images and names
-    for (int i = 0; i < categories.length; i++) {
-      //place item names
-      itemNameLabel = new JLabel(categories[i].getCategoryName());
-      objectPanel.add(itemNameLabel);
-      itemNameLabel.setFont(font);
-      itemNameLabel.setForeground(Color.black);
-      itemNameLabel.setBounds(xPos, yPos + imageButtonHeight, nameLabelWidth, nameLabelHeight);
-      itemNameLabel.setVisible(true);
-      categoryDisplayFrame.setLayout(null);
-      //place images
-      image = categories[i].getImageRoot();
-      imageButton = new JButton(image);
-      imageButton.setText("category");
-      imageButton.addActionListener(listener);
-      buttons[i] = imageButton;
-      itemNames[i] = itemNameLabel;
-      objectPanel.add(imageButton);
-      imageButton.setBounds(xPos, yPos, imageButtonWidth, imageButtonHeight);
-      //position adjustments for the next placement
-      xPos += 275;
-      rowCounter++;
-      //if the row has ended
-      if (rowCounter == maxRowCount) {
-        yPos += 300;
-        xPos = 75;
-      }
-    }
-    categoryDisplayFrame.revalidate();
-    categoryDisplayFrame.repaint();
   }
 }
 

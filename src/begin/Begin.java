@@ -1,6 +1,7 @@
 package src.begin;
 
 import src.GUIs.CategoryDisplayFrame;
+import src.GUIs.ProductDisplayFrame;
 import src.GUIs.StartFrame;
 import src.misc.ObjectCreation;
 
