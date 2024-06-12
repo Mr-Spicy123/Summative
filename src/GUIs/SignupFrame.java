@@ -82,16 +82,13 @@ public class SignupFrame {
     confirmPasswordField.setFont(font);
 
     JButton backButton = new JButton("back");
-    SwingSetup.setupButton(backButton, objectPanel, 20, 10, 200, 100, false, false);
-    backButton.addActionListener(listener);
+    SwingSetup.setupButton(backButton, objectPanel, listener, 20, 10, 200, 100, false, false);
 
     JButton signinButton = new JButton("sign-in");
-    SwingSetup.setupButton(signinButton, objectPanel, 1050, 140, 300, 110, false, false);
-    signinButton.addActionListener(listener);
+    SwingSetup.setupButton(signinButton, objectPanel, listener, 1050, 140, 300, 110, false, false);
 
     JButton enterButton = new JButton("enter");
-    SwingSetup.setupButton(enterButton, objectPanel, 895, 570, 575, 220, false, false);
-    enterButton.addActionListener(listener);
+    SwingSetup.setupButton(enterButton, objectPanel, listener, 895, 570, 575, 220, false, false);
 
     //frame creation
     SwingSetup.setupFrame(signupFrame, 0, 0, 1536, 864, false, null);

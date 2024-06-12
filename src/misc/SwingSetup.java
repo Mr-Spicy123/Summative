@@ -2,6 +2,7 @@ package src.misc;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class SwingSetup {
   public static void setupFrame(JFrame frame, int x, int y, int width, int height, boolean vis, Object layout) {
@@ -40,11 +41,22 @@ public class SwingSetup {
     }
   }
 
-  public static void setupButton(JButton button, JPanel panel, int x, int y, int width, int height, boolean opaque, boolean focusable) {
+  public static void setupButton(JButton button, JPanel panel, ActionListener listener, int x, int y, int width, int height, boolean opaque, boolean focusable) {
     panel.add(button);
     button.setBounds(x, y, width, height);
     button.setOpaque(opaque);
     button.setFocusable(focusable);
+  }
+
+  public static void setupInvisibleButton(JButton button, JPanel panel, ActionListener listener, int x, int y, int width, int height, boolean opaque, boolean focusable) {
+    button.setOpaque(opaque);
+    button.setFocusable(focusable);
+    button.setOpaque(false);
+    button.setBorder(null);
+    button.setContentAreaFilled(false);
+    button.setForeground(new Color(0, 0, 0, 0));
+    panel.add(button);
+    button.setBounds(x, y, width, height);
   }
 
   public static void setupTextField(JTextField field, JPanel panel, int x, int y, int width, int height, boolean opaque) {

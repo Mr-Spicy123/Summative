@@ -6,7 +6,7 @@ import src.misc.ObjectCreation;
 
 public class Begin {
   public static void main(String[] args) {
-    new StartFrame();
-    //new CategoryDisplayFrame(ObjectCreation.getCategories());
+    //new StartFrame();
+    new CategoryDisplayFrame(ObjectCreation.getCategories());
   }
 }

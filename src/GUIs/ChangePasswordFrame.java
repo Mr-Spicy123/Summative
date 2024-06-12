@@ -67,12 +67,10 @@ public class ChangePasswordFrame {
     SwingSetup.setupPanel(objectPanel, 0, 0, 1536, 864, null, false);
 
     JButton backButton = new JButton("back");
-    SwingSetup.setupButton(backButton, objectPanel, 20, 10, 200, 100, false, false);
-    backButton.addActionListener(listener);
+    SwingSetup.setupButton(backButton, objectPanel, listener, 20, 10, 200, 100, false, false);
 
     JButton enterButton = new JButton("enter");
-    SwingSetup.setupButton(enterButton, objectPanel, 1160, 450, 325, 150, false, false);
-    enterButton.addActionListener(listener);
+    SwingSetup.setupButton(enterButton, objectPanel, listener, 1160, 450, 325, 150, false, false);
 
     password1 = new JTextField();
     SwingSetup.setupTextField(password1, objectPanel, 635, 400, 410, 75, true);

@@ -60,16 +60,13 @@ public class EnterCodeFrame {
     SwingSetup.setupPanel(objectPanel, 0, 0, 1536, 864, null, false);
 
     JButton backButton = new JButton("back");
-    SwingSetup.setupButton(backButton, objectPanel, 20, 10, 200, 100, false, false);
-    backButton.addActionListener(listener);
+    SwingSetup.setupButton(backButton, objectPanel, listener, 20, 10, 200, 100, false, false);
 
     JButton enterButton = new JButton("enter");
-    SwingSetup.setupButton(enterButton, objectPanel, 990, 350, 475, 175, false, false);
-    enterButton.addActionListener(listener);
+    SwingSetup.setupButton(enterButton, objectPanel, listener, 990, 350, 475, 175, false, false);
 
     JButton resendButton = new JButton("resend");
-    SwingSetup.setupButton(resendButton, objectPanel, 500, 735, 550, 90, false, false);
-    resendButton.addActionListener(listener);
+    SwingSetup.setupButton(resendButton, objectPanel,  listener,500, 735, 550, 90, false, false);
 
     code = new JTextField();
     SwingSetup.setupTextField(code, objectPanel, 150, 350, 735, 160, true);

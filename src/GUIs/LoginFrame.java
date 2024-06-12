@@ -84,20 +84,16 @@ public class LoginFrame {
 
     //button creations
     JButton backButton = new JButton("back");
-    SwingSetup.setupButton(backButton, objectPanel, 20, 10, 200, 100, false, false);
-    backButton.addActionListener(listener);
+    SwingSetup.setupButton(backButton, objectPanel, listener, 20, 10, 200, 100, false, false);
 
     JButton signupButton = new JButton("signup");
-    SwingSetup.setupButton(signupButton, objectPanel, 1100, 145, 275, 100, false, false);
-    signupButton.addActionListener(listener);
+    SwingSetup.setupButton(signupButton, objectPanel, listener, 1100, 145, 275, 100, false, false);
 
     JButton enterButton = new JButton("enter");
-    SwingSetup.setupButton(enterButton, objectPanel, 1100, 490, 375, 175, false, false);
-    enterButton.addActionListener(listener);
+    SwingSetup.setupButton(enterButton, objectPanel, listener, 1100, 490, 375, 175, false, false);
 
     JButton forgotPasswordButton = new JButton("forgot password");
-    SwingSetup.setupButton(forgotPasswordButton, objectPanel, 1135, 720, 325, 125, false, false);
-    forgotPasswordButton.addActionListener(listener);
+    SwingSetup.setupButton(forgotPasswordButton, objectPanel,  listener,1135, 720, 325, 125, false, false);
 
     SwingSetup.setupTextField(emailUsername, objectPanel, 560, 438, 400, 75, true);
     emailUsername.setFont(font);

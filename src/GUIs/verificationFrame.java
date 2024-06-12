@@ -58,12 +58,10 @@ public class verificationFrame {
     SwingSetup.setupPanel(objectPanel, 0, 0, 1536, 864, null, false);
 
     JButton backButton = new JButton("back");
-    SwingSetup.setupButton(backButton, objectPanel, 20, 10, 200, 100, false, false);
-    backButton.addActionListener(listener);
+    SwingSetup.setupButton(backButton, objectPanel, listener, 20, 10, 200, 100, false, false);
 
     JButton enterButton = new JButton("enter");
-    SwingSetup.setupButton(enterButton, objectPanel, 1080, 415, 325, 125, false, false);
-    enterButton.addActionListener(listener);
+    SwingSetup.setupButton(enterButton, objectPanel, listener, 1080, 415, 325, 125, false, false);
 
     email = new JTextField();
     SwingSetup.setupTextField(email, objectPanel, 567, 440, 385, 75, true);

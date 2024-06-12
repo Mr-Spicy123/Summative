@@ -53,12 +53,10 @@ public class StartFrame {
 
     //button creation
     JButton login = new JButton("login");
-    SwingSetup.setupButton(login, buttonPanel, 90, 585, 400, 125, false, false);
-    login.addActionListener(listener);
+    SwingSetup.setupButton(login, buttonPanel, listener, 90, 585, 400, 125, false, false);
 
     JButton signup = new JButton("signup");
-    SwingSetup.setupButton(signup, buttonPanel, 1045, 585, 400, 125, false, false);
-    signup.addActionListener(listener);
+    SwingSetup.setupButton(signup, buttonPanel, listener, 1045, 585, 400, 125, false, false);
 
     //frame creation
     SwingSetup.setupFrame(startFrame, 0, 0, 1536, 864, false, null);
