@@ -8,6 +8,7 @@ public class DisplayProduct {
   private ImageIcon imageRoot;
   private ImageIcon expandedImageRoot;
   private String[] details;
+  private Category thisCategory;
 
   public DisplayProduct(String pN, double pP, ImageIcon iR, ImageIcon eIR, String[] d) {
     PROD_NAME = pN;
@@ -31,6 +32,19 @@ public class DisplayProduct {
 
   public String[] getDetails() {
     return details;
+  }
+
+  public Category getThisCategory() {
+    return thisCategory;
+  }
+
+  public void setThisCategory(Category c) {
+    thisCategory = c;
+  }
+
+
+  public String toString() {
+    return getProdName();
   }
 
 }

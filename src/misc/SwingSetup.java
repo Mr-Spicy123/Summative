@@ -66,4 +66,10 @@ public class SwingSetup {
     field.setBounds(x, y, width, height);
     field.setOpaque(opaque);
   }
+
+  public static void setupLabel(JLabel label, JPanel panel, int x, int y, int width, int height, boolean opaque) {
+    panel.add(label);
+    label.setBounds(x, y, width, height);
+    label.setOpaque(opaque);
+  }
 }
