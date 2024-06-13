@@ -6,6 +6,7 @@ import src.superClasses.Product;
 import javax.swing.*;
 public class OculusQuest3 extends Product {
   private final int OculusQuest3_ID;
+  private static final int shipSize = 30;
   private static final String prodName = "Oculus Quest 3";
   private static int numOculusQuest3 = 0;
   private static int OculusQuest3Stock = 0;
@@ -20,6 +21,14 @@ public class OculusQuest3 extends Product {
     OculusQuest3Stock++;
     numOculusQuest3++;
     OculusQuest3_ID = numOculusQuest3;
+  }
+
+  public static int getShipSize() {
+    return shipSize;
+  }
+
+  public static int getOculusQuest3Stock() {
+    return OculusQuest3Stock;
   }
 
   public void sell() {

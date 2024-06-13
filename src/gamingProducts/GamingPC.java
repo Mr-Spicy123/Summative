@@ -6,6 +6,7 @@ import src.superClasses.Product;
 import javax.swing.*;
 public class GamingPC extends Product {
   private final int GamingPC_ID;
+  private static final int shipSize = 30;
   private static final String prodName = "Gaming PC";
   private static int numGamingPC = 0;
   private static int GamingPCStock = 0;
@@ -22,6 +23,14 @@ public class GamingPC extends Product {
     GamingPC_ID = numGamingPC;
   }
 
+
+  public static int getShipSize() {
+    return shipSize;
+  }
+
+  public static int getGamingPCStock() {
+    return GamingPCStock;
+  }
   public void sell() {
     GamingPCStock--;
   }

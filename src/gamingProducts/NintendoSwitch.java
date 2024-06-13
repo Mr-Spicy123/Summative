@@ -6,6 +6,7 @@ import src.superClasses.Product;
 import javax.swing.*;
 public class NintendoSwitch extends Product {
   private final int NintendoSwitch_ID;
+  private static final int shipSize = 30;
   private static final String prodName = "Nintendo Switch";
   private static int numNintendoSwitch = 0;
   private static int NintendoSwitchStock = 0;
@@ -20,6 +21,14 @@ public class NintendoSwitch extends Product {
     NintendoSwitchStock++;
     numNintendoSwitch++;
     NintendoSwitch_ID = numNintendoSwitch;
+  }
+
+  public static int getShipSize() {
+    return shipSize;
+  }
+
+  public static int getNintendoSwitchStock() {
+    return NintendoSwitchStock;
   }
 
   public void sell() {

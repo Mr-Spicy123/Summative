@@ -6,6 +6,7 @@ import src.superClasses.Product;
 import javax.swing.*;
 
 public class PS5 extends Product {
+  private static final int shipSize = 30;
   private final int PS5_ID;
   private static final String prodName = "Play Station 5";
   private static int numPS5 = 0;
@@ -27,13 +28,18 @@ public class PS5 extends Product {
           "ray tracing for realistic lighting and reflec-",
           "tions"
   };
-  public PS5(){
+
+  //parameter int n is to differentiate a default object with a non default object; int n is never intended to be used
+  public PS5() {
     super(prodName, PS5Price, PS5Image, PS5ScaledImage, detailPS5);
     PS5Stock++;
     numPS5++;
     PS5_ID = numPS5;
   }
 
+  public static int getShipSize() {
+    return shipSize;
+  }
   public void sell() {
     PS5Stock--;
   }
@@ -57,6 +63,9 @@ public class PS5 extends Product {
     return PS5ScaledImage;
   }
 
+  public static int getPS5Stock() {
+    return PS5Stock;
+  }
   @Override
   public String toString(){
     return "\n\u001B[95mProduct type: \u001B[94m" + prodName + "\u001B[95m\nPS5 Stock ID: \u001B[94m" + PS5_ID + "\u001B[0m";

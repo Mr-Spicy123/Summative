@@ -6,6 +6,7 @@ import src.superClasses.Product;
 import javax.swing.*;
 public class XBoxSX extends Product {
   private final int XboxSX_ID;
+  private static final int shipSize = 30;
   private static final String prodName = "Xbox Series X";
   private static int numXboxSX = 0;
   private static int XboxSXStock = 0;
@@ -20,6 +21,14 @@ public class XBoxSX extends Product {
     XboxSXStock++;
     numXboxSX++;
     XboxSX_ID = numXboxSX;
+  }
+
+  public static int getShipSize() {
+    return shipSize;
+  }
+
+  public static int getXboxSXStock() {
+    return XboxSXStock;
   }
 
   public void sell() {

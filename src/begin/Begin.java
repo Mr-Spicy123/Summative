@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class Begin {
   public static void main(String[] args) {
     new ObjectCreation();
-    new StartFrame();
-    //new CategoryDisplayFrame(ObjectCreation.getCategories());
+    //new StartFrame();
+    new CategoryDisplayFrame(ObjectCreation.getCategories());
   }
 }

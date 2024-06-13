@@ -3,6 +3,7 @@ package src.GUIs;
 import src.misc.Cart;
 import src.misc.ImageIconScaler;
 import src.misc.SwingSetup;
+import src.shipments.ShipmentThread;
 import src.superClasses.DisplayProduct;
 
 import javax.swing.*;
@@ -14,7 +15,9 @@ import java.util.Arrays;
 public class SingleProductFrame {
 
 
-  Font font = new Font("Arial", Font.BOLD, 25);
+  Font smallFont = new Font("Arial", Font.BOLD, 25);
+  Font largeFont = new Font("Arial", Font.BOLD, 40);
+  Font mediumFont = new Font("Arial", Font.BOLD, 32);
   ActionListener listener;
   JFrame singleProductFrame = new JFrame();
 
@@ -37,6 +40,11 @@ public class SingleProductFrame {
               singleProductFrame.setVisible(false);
               break;
             case "add to cart":
+              ShipmentThread s = new ShipmentThread();
+              s.start();
+              if (d.getStock() < 5) {
+                ShipmentThread.requestShip(d, d.getObject(), d.getProdName());
+              }
               Cart.addToCart(d);
               System.out.println(Arrays.toString(Cart.getCartArray()));
               break;
@@ -82,6 +90,7 @@ public class SingleProductFrame {
     SwingSetup.setupInvisibleButton(viewCartButton, backgroundPanel, listener, 1300, 0, 225, 125, false, false);
 
     JButton addCartButton = new JButton("add to cart");
+
     SwingSetup.setupInvisibleButton(addCartButton, backgroundPanel, listener, 490, 705, 150, 100, false, false);
 
     int x = 800;
@@ -90,17 +99,34 @@ public class SingleProductFrame {
     for (int i = 0; i < d.getDetails().length; i++) {
       JLabel text = new JLabel(d.getDetails()[i]);
       text.setBounds(x, y, 650, 50);
-      text.setOpaque(true);
-      text.setVisible(true);
       text.setBackground(new Color(0, 0, 0, 0));
-      text.setFont(font);
+      text.setFont(smallFont);
       backgroundPanel.add(text);
       y += 45;
     }
 
-    //singleProductFrame.add(objectPanel);
-    /*objectPanel.revalidate();
-    objectPanel.repaint();*/
+    JLabel itemName = new JLabel(d.getProdName());
+    itemName.setBounds(310, 610, 200, 50);
+    itemName.setBackground(new Color(0, 0, 0, 0));
+    itemName.setFont(smallFont);
+    backgroundPanel.add(itemName);
+
+    JLabel itemPrice = new JLabel(Double.toString(d.getPROD_PRICE()));
+    itemPrice.setBounds(260, 685, 200, 50);
+    itemPrice.setBackground(new Color(0, 0, 0, 0));
+    itemPrice.setForeground(Color.GREEN);
+    itemPrice.setFont(largeFont);
+    backgroundPanel.add(itemPrice);
+
+    JLabel stockNum = new JLabel("Amount in stock: " + d.getStock());
+    stockNum.setBounds(180, 750, 400, 50);
+    stockNum.setBackground(new Color(0, 0, 0, 0));
+    stockNum.setForeground(Color.GRAY);
+    stockNum.setFont(mediumFont);
+    backgroundPanel.add(stockNum);
+
+
+
     SwingSetup.setupFrame(singleProductFrame, 0, 0, 1536, 864, false, null);
 
     singleProductFrame.add(backgroundPanel);
