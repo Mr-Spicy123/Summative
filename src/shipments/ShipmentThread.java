@@ -57,7 +57,6 @@ public class ShipmentThread extends Thread {
   }
 
   public void shipping() {
-    JOptionPane.showMessageDialog(null, "New shipment is on its way!");
     delay(10000);
     JOptionPane.showMessageDialog(null, "Shipment has arrived");
     prod = new Product[prod.length];
@@ -73,7 +72,6 @@ public class ShipmentThread extends Thread {
 
   public void run() {
     if (request) {
-      System.out.println("shipment is on its way!");
       shipping();
     }
   }

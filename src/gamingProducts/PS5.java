@@ -9,6 +9,7 @@ public class PS5 extends Product {
   private static final int shipSize = 30;
   private final int PS5_ID;
   private static final String prodName = "Play Station 5";
+  private final String name = prodName;
   private static int numPS5 = 0;
   private static int PS5Stock = 0;
   private static final double PS5Price = 679.99;
@@ -37,10 +38,13 @@ public class PS5 extends Product {
     PS5_ID = numPS5;
   }
 
+  public void setStock(int s) {
+    PS5Stock = s;
+  }
   public static int getShipSize() {
     return shipSize;
   }
-  public void sell() {
+  public static void sell() {
     PS5Stock--;
   }
 
@@ -54,6 +58,11 @@ public class PS5 extends Product {
 
   public static String getProdName() {
     return prodName;
+  }
+
+  @Override
+  public String getName() {
+    return name;
   }
   public static double getPS5Price() {
     return PS5Price;

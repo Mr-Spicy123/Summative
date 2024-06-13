@@ -8,6 +8,7 @@ public class OculusQuest3 extends Product {
   private final int OculusQuest3_ID;
   private static final int shipSize = 30;
   private static final String prodName = "Oculus Quest 3";
+  private final String name = prodName;
   private static int numOculusQuest3 = 0;
   private static int OculusQuest3Stock = 0;
   private static final double OculusQuest3Price = 1499.99;
@@ -21,6 +22,16 @@ public class OculusQuest3 extends Product {
     OculusQuest3Stock++;
     numOculusQuest3++;
     OculusQuest3_ID = numOculusQuest3;
+  }
+
+  @Override
+  public String getName() {
+    return name;
+  }
+
+  @Override
+  public void setStock(int s) {
+    OculusQuest3Stock = s;
   }
 
   public static int getShipSize() {

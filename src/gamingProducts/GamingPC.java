@@ -8,6 +8,7 @@ public class GamingPC extends Product {
   private final int GamingPC_ID;
   private static final int shipSize = 30;
   private static final String prodName = "Gaming PC";
+  private final String name = prodName;
   private static int numGamingPC = 0;
   private static int GamingPCStock = 0;
   private static final double GamingPCPrice = 1499.99;
@@ -23,6 +24,14 @@ public class GamingPC extends Product {
     GamingPC_ID = numGamingPC;
   }
 
+  @Override
+  public String getName() {
+    return name;
+  }
+  @Override
+  public void setStock(int s) {
+    GamingPCStock = s;
+  }
 
   public static int getShipSize() {
     return shipSize;

@@ -7,6 +7,8 @@ import src.GUIs.StartFrame;
 import src.gamingProducts.*;
 import src.misc.Cart;
 import src.misc.ObjectCreation;
+import src.superClasses.Category;
+import src.superClasses.DisplayProduct;
 
 import java.util.Arrays;
 

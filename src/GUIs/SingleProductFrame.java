@@ -17,7 +17,7 @@ public class SingleProductFrame {
 
   Font smallFont = new Font("Arial", Font.BOLD, 25);
   Font largeFont = new Font("Arial", Font.BOLD, 40);
-  Font mediumFont = new Font("Arial", Font.BOLD, 32);
+  Font mediumFont = new Font("Arial", Font.BOLD, 30);
   ActionListener listener;
   JFrame singleProductFrame = new JFrame();
 
@@ -45,8 +45,13 @@ public class SingleProductFrame {
               if (d.getStock() < 5) {
                 ShipmentThread.requestShip(d, d.getObject(), d.getProdName());
               }
-              Cart.addToCart(d);
-              System.out.println(Arrays.toString(Cart.getCartArray()));
+              if (d.getStock() > 0) {
+                Cart.addToCart(d);
+                System.out.println(Arrays.toString(Cart.getCartArray()));
+              }
+              else {
+                JOptionPane.showMessageDialog(null, "out of stock, but new shipment is on the way!");
+              }
               break;
           }
         }
@@ -119,7 +124,7 @@ public class SingleProductFrame {
     backgroundPanel.add(itemPrice);
 
     JLabel stockNum = new JLabel("Amount in stock: " + d.getStock());
-    stockNum.setBounds(180, 750, 400, 50);
+    stockNum.setBounds(170, 750, 400, 50);
     stockNum.setBackground(new Color(0, 0, 0, 0));
     stockNum.setForeground(Color.GRAY);
     stockNum.setFont(mediumFont);

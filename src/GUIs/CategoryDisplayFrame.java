@@ -188,10 +188,12 @@ public class CategoryDisplayFrame implements KeyListener {
         //place images
         image = categories[i].getImageRoot();
         imageButton = new JButton(image);
+        objectPanel.add(imageButton);
+        imageButton.setText(Integer.toString(i));
         imageButton.addActionListener(listener);
         buttons[i] = imageButton;
         itemNames[i] = itemNameLabel;
-        objectPanel.add(imageButton);
+
         imageButton.setBounds(xPos, yPos, imageButtonWidth, imageButtonHeight);
         //position adjustments for the next placement
         xPos += 275;

@@ -8,6 +8,7 @@ public class NintendoSwitch extends Product {
   private final int NintendoSwitch_ID;
   private static final int shipSize = 30;
   private static final String prodName = "Nintendo Switch";
+  private final String name = prodName;
   private static int numNintendoSwitch = 0;
   private static int NintendoSwitchStock = 0;
   private static final double NintendoSwitchPrice = 349.99;
@@ -23,10 +24,19 @@ public class NintendoSwitch extends Product {
     NintendoSwitch_ID = numNintendoSwitch;
   }
 
+  @Override
+  public String getName() {
+    return name;
+  }
+
   public static int getShipSize() {
     return shipSize;
   }
 
+  @Override
+  public void setStock(int s) {
+    NintendoSwitchStock = s;
+  }
   public static int getNintendoSwitchStock() {
     return NintendoSwitchStock;
   }

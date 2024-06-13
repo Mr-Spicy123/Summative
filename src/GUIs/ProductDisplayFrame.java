@@ -155,6 +155,8 @@ public class ProductDisplayFrame implements KeyListener {
         //place images
         image = products[i].getImageRoot();
         imageButton = new JButton(image);
+        imageButton.setText(Integer.toString(i));
+        imageButton.addActionListener(listener);
         productDisplayFrame.setLayout(null);
         imageButton.setBounds(xPos, yPos, imageButtonWidth, imageButtonHeight);
         buttons[i] = imageButton;

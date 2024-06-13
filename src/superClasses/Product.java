@@ -13,6 +13,8 @@ public class Product {
   private final ImageIcon expandedImageRoot;
   private final String[] details;
   private static int stock = 0;
+  private static Product[] products = new Product[150];
+  private static int productsIndex = 0;
   private static final ImageIcon defaultImage = new ImageIcon("C:\\Users\\jacks\\OneDrive\\CS_Summative_Images\\noDataImage.jpg");
   private static final int expandedWidth = 525;
   private static final int   expandedHeight = 525;
@@ -35,6 +37,8 @@ public class Product {
     stock++;
     numProd++;
     prod_ID = numProd;
+    products[productsIndex] = this;
+    productsIndex++;
   }
 
   public Product(double pP, ImageIcon iR, ImageIcon eIR, String[] d) {
@@ -42,13 +46,21 @@ public class Product {
   }
 
 
+  public static Product[] getProducts() {
+    return products;
+  }
   public String toString(){
     return "\nProdName: " + prodName + "\nID: " + prod_ID;
   }
   //getters and setters
-  /*public String getProdName() {
+  public String getName() {
     return prodName;
-  }*/
+  }
+
+
+  public void setStock(int s) {
+    stock = s;
+  }
 
   public double getProdPrice() {
     return prodPrice;

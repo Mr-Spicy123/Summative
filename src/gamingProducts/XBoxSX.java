@@ -8,6 +8,7 @@ public class XBoxSX extends Product {
   private final int XboxSX_ID;
   private static final int shipSize = 30;
   private static final String prodName = "Xbox Series X";
+  private final String name = prodName;
   private static int numXboxSX = 0;
   private static int XboxSXStock = 0;
   private static final double XboxSXPrice = 649.99;
@@ -23,10 +24,19 @@ public class XBoxSX extends Product {
     XboxSX_ID = numXboxSX;
   }
 
+  @Override
+  public String getName() {
+    return name;
+  }
+
   public static int getShipSize() {
     return shipSize;
   }
 
+  @Override
+  public void setStock(int s) {
+    XboxSXStock = s;
+  }
   public static int getXboxSXStock() {
     return XboxSXStock;
   }
