@@ -33,8 +33,7 @@ public class XBoxSS extends Product {
     return shipSize;
   }
 
-  @Override
-  public void setStock(int s) {
+  public static void setStock(int s) {
     XBoxSSStock = s;
   }
 

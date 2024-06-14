@@ -2,6 +2,7 @@ package src.GUIs;
 
 import src.FileIO.Writer;
 import src.misc.AccountRequirements;
+import src.misc.CurrentUser;
 import src.misc.ImageIconScaler;
 import src.misc.SwingSetup;
 
@@ -9,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Currency;
 
 public class SignupFrame {
 
@@ -46,6 +48,8 @@ public class SignupFrame {
                 Writer.writeFile(password, Writer.passwordsFile);
                 Writer.writeFile(email, Writer.emailFile);
                 Writer.writeFile("1000.00", Writer.balanceFile);
+
+
                 new LoginFrame();
                 signupFrame.setVisible(false);
               }

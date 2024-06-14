@@ -38,7 +38,7 @@ public class PS5 extends Product {
     PS5_ID = numPS5;
   }
 
-  public void setStock(int s) {
+  public static void setStock(int s) {
     PS5Stock = s;
   }
   public static int getShipSize() {

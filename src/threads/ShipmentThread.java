@@ -1,4 +1,4 @@
-package src.shipments;
+package src.threads;
 
 import src.gamingProducts.*;
 import src.superClasses.DisplayProduct;

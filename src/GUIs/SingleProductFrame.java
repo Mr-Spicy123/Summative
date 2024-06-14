@@ -3,7 +3,7 @@ package src.GUIs;
 import src.misc.Cart;
 import src.misc.ImageIconScaler;
 import src.misc.SwingSetup;
-import src.shipments.ShipmentThread;
+import src.threads.ShipmentThread;
 import src.superClasses.DisplayProduct;
 
 import javax.swing.*;

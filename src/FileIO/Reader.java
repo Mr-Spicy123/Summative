@@ -6,9 +6,9 @@ import java.nio.Buffer;
 public class Reader {
 
   public static String emailFile = "Emails.txt";
-  static String passwordsFile = "Passwords.txt";
+  public static String passwordsFile = "Passwords.txt";
   public static String usernameFile = "Usernames.txt";
-  static String balanceFile = "UserBalance.txt";
+  public static String balanceFile = "UserBalance.txt";
 
   public static int getNumLines(String file) {
     String line;
@@ -102,12 +102,12 @@ public class Reader {
     return false;
   }
 
-  public static String[] getArrayPassword() {
-    String[] passes = new String[getNumLines(passwordsFile)];
+  public static String[] getArray(String file) {
+    String[] passes = new String[getNumLines(file)];
     try {
-      FileReader fr = new FileReader(passwordsFile);
+      FileReader fr = new FileReader(file);
       BufferedReader br = new BufferedReader(fr);
-      for (int i = 0; i < getNumLines(passwordsFile); i++) {
+      for (int i = 0; i < getNumLines(file); i++) {
         passes[i] = br.readLine();
       }
     } catch (IOException e) {

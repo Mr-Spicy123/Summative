@@ -29,8 +29,8 @@ public class OculusQuest3 extends Product {
     return name;
   }
 
-  @Override
-  public void setStock(int s) {
+
+  public static void setStock(int s) {
     OculusQuest3Stock = s;
   }
 

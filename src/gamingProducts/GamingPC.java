@@ -28,8 +28,8 @@ public class GamingPC extends Product {
   public String getName() {
     return name;
   }
-  @Override
-  public void setStock(int s) {
+
+  public static void setStock(int s) {
     GamingPCStock = s;
   }
 

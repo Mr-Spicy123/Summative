@@ -57,11 +57,6 @@ public class Product {
     return prodName;
   }
 
-
-  public void setStock(int s) {
-    stock = s;
-  }
-
   public double getProdPrice() {
     return prodPrice;
   }

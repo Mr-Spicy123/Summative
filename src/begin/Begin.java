@@ -11,9 +11,9 @@ import java.util.Arrays;
 
 public class Begin {
   public static void main(String[] args) {
-    //new ObjectCreation();
-    //new StartFrame();
+    new ObjectCreation();
+    new StartFrame();
     //new CategoryDisplayFrame(ObjectCreation.getCategories());
-    new CartViewFrame();
+    //new CartViewFrame();
   }
 }

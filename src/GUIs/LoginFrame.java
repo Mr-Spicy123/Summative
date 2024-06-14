@@ -1,10 +1,12 @@
 package src.GUIs;
 
 import src.FileIO.Reader;
+import src.misc.CurrentUser;
 import src.misc.ImageIconScaler;
 import src.misc.ObjectCreation;
 import src.misc.SwingSetup;
 import src.superClasses.Website;
+import src.threads.PaycheckThread;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,6 +45,8 @@ public class LoginFrame {
               //if not an email
               if (!userEmail.contains("@") && !userEmail.contains(".")) {
                   if (Reader.fileFinder(userEmail, pass, Reader.usernameFile)) {
+                    CurrentUser.setUsername(userEmail);
+                    CurrentUser.setPassword(pass);
                     new CategoryDisplayFrame(ObjectCreation.getCategories());
                     loginFrame.setVisible(false);
                   }
@@ -53,6 +57,8 @@ public class LoginFrame {
               //if an email
               else {
                   if (Reader.fileFinder(userEmail, pass, Reader.emailFile)) {
+                    CurrentUser.setEmail(userEmail);
+                    CurrentUser.setPassword(pass);
                     new CategoryDisplayFrame(ObjectCreation.getCategories());
                     loginFrame.setVisible(false);
                   }

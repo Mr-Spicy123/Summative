@@ -36,7 +36,7 @@ public class ChangePasswordFrame {
               String pass2 = password2.getText();
               if (pass1.equals(pass2)) {
                 if (AccountRequirements.checkPassword(pass1)){
-                  RewritePasswordFile.switchPassword(to, pass1);
+                  RewriteFile.switchPassword(to, pass1);
                   new LoginFrame();
                   changePassFrame.setVisible(false);
                 }
