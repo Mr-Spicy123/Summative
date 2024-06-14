@@ -45,6 +45,7 @@ public class SignupFrame {
                 Writer.writeFile(username, Writer.usernamesFile);
                 Writer.writeFile(password, Writer.passwordsFile);
                 Writer.writeFile(email, Writer.emailFile);
+                Writer.writeFile("1000.00", Writer.balanceFile);
                 new LoginFrame();
                 signupFrame.setVisible(false);
               }

@@ -82,7 +82,16 @@ public class Cart {
   }
 
   public static void checkout() {
+    User.subtractBalance(getTotalCost());
+    removeAllItems();
+  }
 
+  public static double getTotalCost() {
+    double cost = 0;
+    for (int i = 0; i < prodsInCart.length; i++) {
+      cost += prodsInCart[i].getPROD_PRICE();
+    }
+    return cost;
   }
 
   public static void subtractStock(DisplayProduct d) {

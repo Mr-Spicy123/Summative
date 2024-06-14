@@ -13,6 +13,5 @@ public class RewritePasswordFile {
     allPasses[ind] = newPass;
     Writer.emptyFile(Writer.passwordsFile);
     Writer.fillFile(allPasses, Writer.passwordsFile);
-
   }
 }

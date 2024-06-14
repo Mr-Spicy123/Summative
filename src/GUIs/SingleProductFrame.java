@@ -42,15 +42,14 @@ public class SingleProductFrame {
             case "add to cart":
               ShipmentThread s = new ShipmentThread();
               s.start();
-              if (d.getStock() < 5) {
+              if (d.getStock() == 0) {
                 ShipmentThread.requestShip(d, d.getObject(), d.getProdName());
+                JOptionPane.showMessageDialog(null, "out of stock, but new shipment is on the way!");
               }
               if (d.getStock() > 0) {
                 Cart.addToCart(d);
+                JOptionPane.showMessageDialog(null, "Added to cart!");
                 System.out.println(Arrays.toString(Cart.getCartArray()));
-              }
-              else {
-                JOptionPane.showMessageDialog(null, "out of stock, but new shipment is on the way!");
               }
               break;
           }

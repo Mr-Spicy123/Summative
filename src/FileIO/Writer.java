@@ -7,7 +7,7 @@ public class Writer {
   public static String emailFile = "Emails.txt";
   public static String passwordsFile = "Passwords.txt";
   public static String usernamesFile = "Usernames.txt";
-  static String balanceFile = "UserBalance.txt";
+  public static String balanceFile = "UserBalance.txt";
 
   public static void writeFile(String text, String file) {
     try {
