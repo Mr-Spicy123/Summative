@@ -11,7 +11,7 @@ public class OculusQuest3 extends Product {
   private final String name = prodName;
   private static int numOculusQuest3 = 0;
   private static int OculusQuest3Stock = 0;
-  private static final double OculusQuest3Price = 1499.99;
+  private static final double OculusQuest3Price = 499.99;
   private static final int expandedWidth = 525;
   private static final int   expandedHeight = 525;
   private static final ImageIcon OculusQuest3Image = new ImageIcon("images/OculusQuest3.jpg");

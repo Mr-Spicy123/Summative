@@ -77,7 +77,7 @@ public class PS5 extends Product {
   }
   @Override
   public String toString(){
-    return "\n\u001B[95mProduct type: \u001B[94m" + prodName + "\u001B[95m\nPS5 Stock ID: \u001B[94m" + PS5_ID + "\u001B[0m";
+    return "\n\u001B[95mProduct type: \u001B[94m" + prodName + "\u001B[95m\nPS5 Stock.txt ID: \u001B[94m" + PS5_ID + "\u001B[0m";
   }
 
 

@@ -8,6 +8,7 @@ public class Writer {
   public static String passwordsFile = "Passwords.txt";
   public static String usernamesFile = "Usernames.txt";
   public static String balanceFile = "UserBalance.txt";
+  public static String stockFile = "Stock.txt";
 
   public static void writeFile(String text, String file) {
     try {
@@ -42,4 +43,5 @@ public class Writer {
       System.err.println("IO");
     }
   }
+
 }

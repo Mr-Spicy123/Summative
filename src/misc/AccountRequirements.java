@@ -14,22 +14,35 @@ public class AccountRequirements {
   }
 
   public static boolean checkUsername(String user) {
-    String[] invalidChars = {")","(","*","&","^","%","$","#","!","?","{","}",";",":","<",">",",","/","'", "@", " ", "."};
+    String[] invalidChars = {")", "(", "*", "&", "^", "%", "$", "#", "!", "?", "{", "}", ";", ":", "<", ">", ",", "/", "'", "@", " ", "."};
     if (user.length() > 7 && user.length() < 17) {
       for (String invalidChar : invalidChars) {
         if (user.contains(invalidChar)) {
+          JOptionPane.showMessageDialog(null, "username contains invalid character");
           return false;
         }
       }
       return true;
     }
+    if (user.length() < 7) {
+      JOptionPane.showMessageDialog(null, "username is too short; must be within 8-16 characters");
+    }
+    if (user.length() > 17) {
+      JOptionPane.showMessageDialog(null, "username is too long; must be within 8-16 characters");
+    }
     return false;
   }
 
   public static boolean checkEmail(String email) {
-    if (email.contains("@") && email.contains(".") && !email.contains(" ")) {
-      return true;
+    if (email.contains("@") && email.contains(".")) {
+      if (!email.contains(" ")) {
+        return true;
+      } else {
+        JOptionPane.showMessageDialog(null, "email cannot contain a space");
+        return false;
+      }
     }
+    JOptionPane.showMessageDialog(null, "this is not an email");
     return false;
   }
 
@@ -44,24 +57,14 @@ public class AccountRequirements {
                 return true;
               }
               else {
-                JOptionPane.showMessageDialog(null, "Email already in use");
+                JOptionPane.showMessageDialog(null, "email is already in system");
               }
-            } else {
-              JOptionPane.showMessageDialog(null, "Invalid email");
             }
-          } else {
-            JOptionPane.showMessageDialog(null, "Invalid password");
           }
-        } else {
-          JOptionPane.showMessageDialog(null, "Passwords do not match");
         }
+      } else {
+        JOptionPane.showMessageDialog(null, "username is already in system");
       }
-      else {
-        JOptionPane.showMessageDialog(null, "Username already in use");
-      }
-    }
-    else {
-      JOptionPane.showMessageDialog(null, "Invalid username");
     }
     return false;
   }

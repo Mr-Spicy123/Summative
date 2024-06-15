@@ -1,5 +1,6 @@
 package src.GUIs;
 
+import src.FileIO.Reader;
 import src.misc.Cart;
 import src.misc.ImageIconScaler;
 import src.misc.SwingSetup;
@@ -42,14 +43,13 @@ public class SingleProductFrame {
             case "add to cart":
               ShipmentThread s = new ShipmentThread();
               s.start();
-              if (d.getStock() == 0) {
-                ShipmentThread.requestShip(d, d.getObject(), d.getProdName());
+              if (Reader.getStock(d.getProdName()) == 0) {
                 JOptionPane.showMessageDialog(null, "out of stock, but new shipment is on the way!");
+                ShipmentThread.ship(d.getProdName());
               }
-              if (d.getStock() > 0) {
+              if (Reader.getStock(d.getProdName()) > 0) {
                 Cart.addToCart(d);
                 JOptionPane.showMessageDialog(null, "Added to cart!");
-                System.out.println(Arrays.toString(Cart.getCartArray()));
               }
               break;
           }
@@ -122,7 +122,7 @@ public class SingleProductFrame {
     itemPrice.setFont(largeFont);
     backgroundPanel.add(itemPrice);
 
-    JLabel stockNum = new JLabel("Amount in stock: " + d.getStock());
+    JLabel stockNum = new JLabel("Amount in stock: " + Reader.getStock(d.getProdName()));
     stockNum.setBounds(170, 750, 400, 50);
     stockNum.setBackground(new Color(0, 0, 0, 0));
     stockNum.setForeground(Color.GRAY);

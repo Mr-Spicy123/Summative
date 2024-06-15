@@ -60,17 +60,19 @@ public class CartViewFrame {
               break;
             case "buy":
               if (!Cart.checkEmpty()) {
-                Cart.checkout();
-                String userEmail = "";
-                if (CurrentUser.getEmail() != null) {
-                  userEmail = CurrentUser.getEmail();
+                //ensure each item has enough stock
+                if (Cart.underItemStock()) {
+                  Cart.checkout();
+                  String userEmail;
+                  if (CurrentUser.getEmail() != null) {
+                    userEmail = CurrentUser.getEmail();
+                  } else {
+                    userEmail = CurrentUser.getUsername();
+                  }
+                  RewriteFile.switchBalance(userEmail, Double.toString(CurrentUser.getCurrentBalance()));
+                  PaycheckThread p = new PaycheckThread();
+                  p.start();
                 }
-                else {
-                  userEmail = CurrentUser.getUsername();
-                }
-                RewriteFile.switchBalance(userEmail, Double.toString(CurrentUser.getCurrentBalance()));
-                PaycheckThread p = new PaycheckThread();
-                p.start();
               }
               else {
                 JOptionPane.showMessageDialog(null, "Cart is empty");

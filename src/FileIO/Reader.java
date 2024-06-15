@@ -2,6 +2,7 @@ package src.FileIO;
 
 import java.io.*;
 import java.nio.Buffer;
+import java.util.Arrays;
 
 public class Reader {
 
@@ -9,6 +10,7 @@ public class Reader {
   public static String passwordsFile = "Passwords.txt";
   public static String usernameFile = "Usernames.txt";
   public static String balanceFile = "UserBalance.txt";
+  public static String stockFile = "Stock.txt";
 
   public static int getNumLines(String file) {
     String line;
@@ -133,29 +135,24 @@ public class Reader {
     return -1;
   }
 
-
-  //reads first line of file (not useful)
-  /*public static String readUserBalance() {
-    String line = "";
+  public static int getStock(String prodName) {
+    String line;
+    int  stock = -1;
+    int fileLength = getNumLines(stockFile);
     try {
-      FileReader fr = new FileReader("UserBalance.txt");
+      FileReader fr = new FileReader(stockFile);
       BufferedReader br = new BufferedReader(fr);
-      line = br.readLine();
-    }catch(IOException e) {
+      for (int i = 0; i < fileLength; i++) {
+        line = br.readLine();
+        if (line.contains(prodName)) {
+          String[] lineArr = line.split(":");
+          stock = Integer.parseInt(lineArr[1]);
+        }
+      }
+      br.close();
+    } catch (IOException e) {
       System.err.println("IO");
     }
-    return line;
+    return stock;
   }
-  public static String readUserInfo() {
-    String line = "";
-    try {
-      FileReader fr = new FileReader("UserInfo.txt");
-      BufferedReader br = new BufferedReader(fr);
-      line = br.readLine();
-    }catch(IOException e) {
-      System.err.println("IO");
-    }
-    return line;
-  }*/
-
 }
