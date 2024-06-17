@@ -52,7 +52,8 @@ public class Cart {
   public static void checkout() {
     if (CurrentUser.getCurrentBalance() >= getTotalCost()) {
       CurrentUser.subtractBalance(getTotalCost());
-      JOptionPane.showMessageDialog(null, "Purchase successful! New balance: " + CurrentUser.getCurrentBalance());
+      JOptionPane.showMessageDialog(null, "Purchase successful!");
+      removeAllItems();
       for (int i = 0; i < prodsInCart.length; i++) {
         if (prodsInCart[i] != null) {
           changeStock(prodsInCart[i]);
@@ -61,7 +62,6 @@ public class Cart {
     } else {
       JOptionPane.showMessageDialog(null, "Purchase unsuccessful. Not enough money :/");
     }
-    removeAllItems();
   }
 
   public static double getTotalCost() {

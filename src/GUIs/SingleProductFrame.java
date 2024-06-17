@@ -3,6 +3,7 @@ package src.GUIs;
 import src.FileIO.Reader;
 import src.misc.Cart;
 import src.misc.ImageIconScaler;
+import src.misc.SoundPlayer;
 import src.misc.SwingSetup;
 import src.threads.ShipmentThread;
 import src.superClasses.DisplayProduct;
@@ -49,7 +50,8 @@ public class SingleProductFrame {
               }
               if (Reader.getStock(d.getProdName()) > 0) {
                 Cart.addToCart(d);
-                JOptionPane.showMessageDialog(null, "Added to cart!");
+                SoundPlayer p = new SoundPlayer(SoundPlayer.whooshPath);
+                p.play();
               }
               break;
           }

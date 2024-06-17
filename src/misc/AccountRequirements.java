@@ -7,10 +7,15 @@ import javax.swing.*;
 public class AccountRequirements {
 
   public static boolean checkPassword(String pass) {
-    if (pass.length() > 7 && pass.length() < 17) {
-      return true;
+    if (pass.length() < 7) {
+      JOptionPane.showMessageDialog(null, "password is too short; must be within 8-16 characters");
+      return false;
     }
-    return false;
+    if (pass.length() > 17) {
+      JOptionPane.showMessageDialog(null, "password is too long; must be within 8-16 characters");
+      return false;
+    }
+    return true;
   }
 
   public static boolean checkUsername(String user) {
@@ -61,6 +66,9 @@ public class AccountRequirements {
               }
             }
           }
+        }
+        else {
+          JOptionPane.showMessageDialog(null, "passwords do not match");
         }
       } else {
         JOptionPane.showMessageDialog(null, "username is already in system");

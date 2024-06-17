@@ -16,6 +16,10 @@ public class CartViewFrame {
   JLabel cartViewFrameImgLabel = new JLabel(cartViewFrameImg);
   static JLabel[] cartItems;
   static JButton[] removeButtons;
+  static Font font = new Font("Arial", Font.BOLD, 30);
+  static Font moneyFont = new Font("Arial", Font.BOLD, 40);
+  static JLabel totalCostLabel = new JLabel();
+  static JLabel balanceLabel = new JLabel();
   static JPanel backgroundPanel = new JPanel() {
     @Override
     protected void paintComponent(Graphics g) {
@@ -31,6 +35,7 @@ public class CartViewFrame {
     int length = Cart.getCartArray().length;
     cartItems = new JLabel[length];
     removeButtons = new JButton[length];
+
 
     listener = new ActionListener() {
       @Override
@@ -62,6 +67,8 @@ public class CartViewFrame {
               if (!Cart.checkEmpty()) {
                 //ensure each item has enough stock
                 if (Cart.underItemStock()) {
+                  SoundPlayer s = new SoundPlayer(SoundPlayer.chachingPath);
+                  s.play();
                   Cart.checkout();
                   String userEmail;
                   if (CurrentUser.getEmail() != null) {
@@ -89,16 +96,24 @@ public class CartViewFrame {
     backgroundPanel.setBounds(0, 0, 1536, 864);
 
     JButton backButton = new JButton("back");
-    SwingSetup.setupInvisibleButton(backButton, backgroundPanel, listener, 0, 0, 100, 75, false, false);
+    SwingSetup.setupInvisibleButton(backButton, backgroundPanel, listener, 0, 0, 150, 95, false, false);
 
     JButton removeAll = new JButton("remove all");
-    SwingSetup.setupInvisibleButton(removeAll, backgroundPanel, listener, 905, 200, 160, 120, false, false);
+    SwingSetup.setupInvisibleButton(removeAll, backgroundPanel, listener, 940, 170, 160, 120, false, false);
 
     JButton removeLast = new JButton("remove last");
-    SwingSetup.setupInvisibleButton(removeLast, backgroundPanel, listener, 1135, 200, 170, 120, false, false);
+    SwingSetup.setupInvisibleButton(removeLast, backgroundPanel, listener, 1160, 170, 170, 120, false, false);
 
     JButton buyButton = new JButton("buy");
-    SwingSetup.setupInvisibleButton(buyButton, backgroundPanel, listener, 890, 465, 450, 250, false, false);
+    SwingSetup.setupInvisibleButton(buyButton, backgroundPanel, listener, 840, 660, 600, 155, false, false);
+
+    backgroundPanel.revalidate();
+    backgroundPanel.repaint();
+
+
+
+    backgroundPanel.revalidate();
+    backgroundPanel.repaint();
 
     setupProductsInCart();
 
@@ -114,11 +129,13 @@ public class CartViewFrame {
         backgroundPanel.remove(cartItems[i]);
         backgroundPanel.remove(removeButtons[i]);
       }
+      backgroundPanel.remove(balanceLabel);
+      backgroundPanel.remove(totalCostLabel);
     }
-    int x = 100;
+    int x = 175;
     int y = 200;
 
-    int cartItemWidth = 200;
+    int cartItemWidth = 350;
     int cartItemHeight = 30;
 
     int removeButtonWidth = 40;
@@ -133,6 +150,7 @@ public class CartViewFrame {
       if (d[i] != null) {
         JLabel cartItem = new JLabel(d[i].getProdName() + " - " + d[i].getPROD_PRICE());
         cartItem.setBounds(x, y, cartItemWidth, cartItemHeight);
+        cartItem.setFont(font);
         backgroundPanel.add(cartItem);
         cartItems[i] = cartItem;
 
@@ -146,19 +164,35 @@ public class CartViewFrame {
         y += 50;
       }
     }
+    totalCostLabel = new JLabel(Double.toString(Math.round(Cart.getTotalCost())));
+    totalCostLabel.setBounds(1185, 440, 250, 40);
+    totalCostLabel.setFont(moneyFont);
+    totalCostLabel.setForeground(Color.GREEN);
+    backgroundPanel.add(totalCostLabel);
+
+    balanceLabel = new JLabel(Double.toString(Math.round(CurrentUser.getCurrentBalance())));
+    balanceLabel.setBounds(1185, 515, 250, 40);
+    balanceLabel.setFont(moneyFont);
+    balanceLabel.setForeground(Color.GREEN);
+    backgroundPanel.add(balanceLabel);
+
     backgroundPanel.revalidate();
     backgroundPanel.repaint();
   }
 
   public static void setupProductsInCart() {
-    int x = 100;
+    int x = 175;
     int y = 200;
 
-    int cartItemWidth = 200;
+    int cartItemWidth = 350;
     int cartItemHeight = 30;
 
     int removeButtonWidth = 40;
     int removeButtonHeight = 40;
+
+    backgroundPanel.remove(balanceLabel);
+    backgroundPanel.remove(totalCostLabel);
+
     //shallow copy is all that is needed here because array is not changing
     DisplayProduct[] d = Cart.getCartArray();
 
@@ -169,6 +203,7 @@ public class CartViewFrame {
       if (d[i] != null) {
         JLabel cartItem = new JLabel(d[i].getProdName() + " - " + d[i].getPROD_PRICE());
         cartItem.setBounds(x, y, cartItemWidth, cartItemHeight);
+        cartItem.setFont(font);
         backgroundPanel.add(cartItem);
         cartItems[i] = cartItem;
 
@@ -182,6 +217,18 @@ public class CartViewFrame {
         y += 50;
       }
     }
+    totalCostLabel = new JLabel(Double.toString(Math.round(Cart.getTotalCost())));
+    totalCostLabel.setBounds(1185, 440, 250, 40);
+    totalCostLabel.setFont(moneyFont);
+    totalCostLabel.setForeground(Color.GREEN);
+    backgroundPanel.add(totalCostLabel);
+
+    balanceLabel = new JLabel(Double.toString(Math.round(CurrentUser.getCurrentBalance())));
+    balanceLabel.setBounds(1185, 515, 250, 40);
+    balanceLabel.setFont(moneyFont);
+    balanceLabel.setForeground(Color.GREEN);
+    backgroundPanel.add(balanceLabel);
+
     backgroundPanel.revalidate();
     backgroundPanel.repaint();
   }

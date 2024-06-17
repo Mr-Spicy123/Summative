@@ -5,7 +5,6 @@ import src.misc.CurrentUser;
 import src.misc.ImageIconScaler;
 import src.misc.ObjectCreation;
 import src.misc.SwingSetup;
-import src.superClasses.Website;
 import src.threads.PaycheckThread;
 
 import javax.swing.*;

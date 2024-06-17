@@ -51,6 +51,7 @@ public class DisplayProduct {
   }
 
   public void setStock(int s) {
+    Product[] p = Product.getProductsArr();
     if (getProdName().equals(PS5.getProdName())) {
       PS5.setStock(s);
     }
