@@ -2,7 +2,6 @@ package src.GUIs;
 
 import src.misc.*;
 import src.superClasses.DisplayProduct;
-import src.threads.PaycheckThread;
 
 import javax.swing.*;
 import java.awt.*;
@@ -67,8 +66,6 @@ public class CartViewFrame {
               if (!Cart.checkEmpty()) {
                 //ensure each item has enough stock
                 if (Cart.underItemStock()) {
-                  SoundPlayer s = new SoundPlayer(SoundPlayer.chachingPath);
-                  s.play();
                   Cart.checkout();
                   String userEmail;
                   if (CurrentUser.getEmail() != null) {
@@ -77,8 +74,6 @@ public class CartViewFrame {
                     userEmail = CurrentUser.getUsername();
                   }
                   RewriteFile.switchBalance(userEmail, Double.toString(CurrentUser.getCurrentBalance()));
-                  PaycheckThread p = new PaycheckThread();
-                  p.start();
                 }
               }
               else {

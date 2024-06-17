@@ -46,6 +46,8 @@ public class LoginFrame {
                   if (Reader.fileFinder(userEmail, pass, Reader.usernameFile)) {
                     CurrentUser.setUsername(userEmail);
                     CurrentUser.setPassword(pass);
+                    PaycheckThread p = new PaycheckThread();
+                    p.start();
                     new CategoryDisplayFrame(ObjectCreation.getCategories());
                     loginFrame.setVisible(false);
                   }
@@ -58,6 +60,8 @@ public class LoginFrame {
                   if (Reader.fileFinder(userEmail, pass, Reader.emailFile)) {
                     CurrentUser.setEmail(userEmail);
                     CurrentUser.setPassword(pass);
+                    PaycheckThread p = new PaycheckThread();
+                    p.start();
                     new CategoryDisplayFrame(ObjectCreation.getCategories());
                     loginFrame.setVisible(false);
                   }

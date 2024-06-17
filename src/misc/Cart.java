@@ -51,14 +51,18 @@ public class Cart {
 
   public static void checkout() {
     if (CurrentUser.getCurrentBalance() >= getTotalCost()) {
+      SoundPlayer s = new SoundPlayer(SoundPlayer.chachingPath);
+      s.play();
       CurrentUser.subtractBalance(getTotalCost());
       JOptionPane.showMessageDialog(null, "Purchase successful!");
-      removeAllItems();
       for (int i = 0; i < prodsInCart.length; i++) {
         if (prodsInCart[i] != null) {
+          System.out.println("changing stock");
           changeStock(prodsInCart[i]);
         }
       }
+      removeAllItems();
+
     } else {
       JOptionPane.showMessageDialog(null, "Purchase unsuccessful. Not enough money :/");
     }

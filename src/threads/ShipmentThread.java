@@ -13,6 +13,10 @@ public class ShipmentThread extends Thread {
   //static boolean run = true;
   static String prodName;
 
+  public ShipmentThread(String pN) {
+    prodName = pN;
+  }
+
   public static void delay(int mills) {
     try {
       Thread.sleep(mills);
@@ -20,14 +24,14 @@ public class ShipmentThread extends Thread {
     }
   }
 
-  public static void ship(String pN) {
-    prodName = pN;
+  public static void ship() {
     delay(10000);
     JOptionPane.showMessageDialog(null, "Shipment has arrived");
     RewriteFile.rewriteStock(prodName, Integer.toString(Reader.getStock(prodName) + 15));
   }
 
   public void run() {
+    ship();
   }
 
 }

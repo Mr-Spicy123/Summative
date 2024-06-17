@@ -7,22 +7,22 @@ import java.util.Currency;
 
 public class PaycheckThread extends Thread{
 
+  boolean sendMoney = true;
 
-
+//this will give the user $2000 every 30 seconds
   public void run() {
-    if (CurrentUser.getCurrentBalance() < 500) {
-      sendMoney();
+    while (sendMoney) {
+      System.out.println("in paycheck thread");
+      try {
+        //this will execute every 30 seconds
+        System.out.println("waiting 30 seconds...");
+        Thread.sleep(30000);
+        System.out.println("done waiting");
+      } catch (InterruptedException e) {
+      }
+      //subtracting a negative number will increase the balance
+      CurrentUser.subtractBalance(-2000);
+      System.out.println("added money");
     }
-  }
-
-  public static void sendMoney() {
-    JOptionPane.showMessageDialog(null, "Looks like you're getting low on money! Paycheck is sending!");
-    try {
-      Thread.sleep(10000);
-    }catch(InterruptedException e) {
-    }
-    JOptionPane.showMessageDialog(null, "Paycheck is sent!");
-    //subtracting a negative number will increase the balance
-    CurrentUser.subtractBalance(-1000);
   }
 }
