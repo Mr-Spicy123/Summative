@@ -16,7 +16,15 @@ public class XBoxSS extends Product {
   private static final int   expandedHeight = 525;
   private static final ImageIcon XBoxSSImage = new ImageIcon("images/XBoxSS.jpg");
   private static final ImageIcon XBoxSSScaledImage = ImageIconScaler.scaleImageIcon(XBoxSSImage, expandedWidth, expandedHeight);
-  private static final String[] detailXBoxSS = {"The Xbox Series S has an unbeatable ", "price to performance ratio. Despite ", "the low price, this console is a ", "top-competitor."};
+  private static final String[] detailXBoxSS = {
+          "Officially revealed after several leaks, Microso-",
+          "ft has announced another console in the Xbox Series-",
+          "known as the Xbox Series S. This console is intended-",
+          "to be a more affordable option than the Xbox Series X-",
+          "while still offering many of the improvements featured-",
+          "in the Series X."
+  };
+
   public XBoxSS(){
     super(prodName, XBoxSSPrice, XBoxSSImage, XBoxSSScaledImage, detailXBoxSS);
     XBoxSSStock++;

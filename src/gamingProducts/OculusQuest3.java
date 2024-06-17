@@ -16,7 +16,14 @@ public class OculusQuest3 extends Product {
   private static final int   expandedHeight = 525;
   private static final ImageIcon OculusQuest3Image = new ImageIcon("images/OculusQuest3.jpg");
   private static final ImageIcon OculusQuest3ScaledImage = ImageIconScaler.scaleImageIcon(OculusQuest3Image, expandedWidth, expandedHeight);
-  private static final String[] detailOculusQuest3 = {"The newest VR headset of the Oculus ", "Quest line has remarkable capabilities ", "and for less than half of the price ", "of its competitors."};
+  private static final String[] detailOculusQuest3 = {
+          "The Quest 3's design is an evolution of that of-",
+          "the Quest 2, combined with elements of the Meta-",
+          "Quest Pro. It uses a pair of LCD displays with a-",
+          "per-eye resolution of 2064×2208p, which is a rou-",
+          "ghly +30% increase over the 1832×1920p resol-",
+          "ution of the Quest 2."
+  };
   public OculusQuest3(){
     super(prodName, OculusQuest3Price, OculusQuest3Image, OculusQuest3ScaledImage, detailOculusQuest3);
     OculusQuest3Stock++;

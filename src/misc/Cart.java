@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.util.Arrays;
 
 public class Cart {
-  static final int maxCartAmount = 50;
+  static final int maxCartAmount = 100;
   static int cartArrayIndex = 0;
   static DisplayProduct[] prodsInCart = new DisplayProduct[maxCartAmount];
 

@@ -155,4 +155,17 @@ public class Reader {
     }
     return stock;
   }
+
+  public static boolean inStockFile(String prodName) {
+    String[] itemsInFile = getArray(stockFile);
+    //remove the info about the stock in each element
+    for (int i = 0; i < itemsInFile.length; i++) {
+      String[] line = itemsInFile[i].split(":");
+      itemsInFile[i] = line[0];
+      if (itemsInFile[i].equals(prodName)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -37,8 +37,9 @@ public class Category {
   }
   //toString
 
-
-  //getters and setters
+  public int compareTo(Category c) {
+    return c.getCategoryName().compareTo(categoryName);
+  }
 }
 
 

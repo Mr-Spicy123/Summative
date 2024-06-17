@@ -16,7 +16,14 @@ public class XBoxSX extends Product {
   private static final int   expandedHeight = 525;
   private static final ImageIcon XboxSXImage = new ImageIcon("images/XboxSX.jpg");
   private static final ImageIcon XboxSXScaledImage = ImageIconScaler.scaleImageIcon(XboxSXImage, expandedWidth, expandedHeight);
-  private static final String[] detailXboxSX = {"The Xbox Series X is the greatest ", "Xbox gaming console and is overall ", "a top-competitor."};
+  private static final String[] detailXboxSX = {
+          "Introducing the Xbox Series X, the most powerful-",
+          "console ever created! With breathtaking 4K resolu-",
+          "tion, lightning-fast load times, and a library of-",
+          "thousands of games, the Xbox Series X delivers an-",
+          "unrivaled gaming experience. Get ready to elevate-",
+          "your play with the next generation of gaming!"
+  };
   public XBoxSX(){
     super(prodName, XboxSXPrice, XboxSXImage, XboxSXScaledImage, detailXboxSX);
     XboxSXStock++;

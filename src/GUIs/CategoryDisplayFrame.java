@@ -264,7 +264,7 @@ public class CategoryDisplayFrame implements KeyListener {
   public static void setVariables() {
     //initial x and y coordinates for image placement
     xPos = 75;
-    yPos = 150;
+    yPos = 175;
 
 //dimensions for labels and buttons
     nameLabelWidth = 225;

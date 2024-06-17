@@ -17,7 +17,7 @@ import java.util.Arrays;
 public class SingleProductFrame {
 
 
-  Font smallFont = new Font("Arial", Font.BOLD, 25);
+  Font smallFont = new Font("Arial", Font.BOLD, 20);
   Font largeFont = new Font("Arial", Font.BOLD, 40);
   Font mediumFont = new Font("Arial", Font.BOLD, 30);
   ActionListener listener;
@@ -136,12 +136,5 @@ public class SingleProductFrame {
 
     singleProductFrame.add(backgroundPanel);
     singleProductFrame.setVisible(true);
-
-
-
-
-
-
-
   }
 }

@@ -16,7 +16,13 @@ public class NintendoSwitch extends Product {
   private static final int   expandedHeight = 525;
   private static final ImageIcon NintendoSwitchImage = new ImageIcon("images/switch.jpg");
   private static final ImageIcon NintendoSwitchScaledImage = ImageIconScaler.scaleImageIcon(NintendoSwitchImage, expandedWidth, expandedHeight);
-  private static final String[] detailNintendoSwitch = {"This console has a feature that ", "no other console has, you can bring ", "this machine anywhere!"};
+  private static final String[] detailNintendoSwitch = {
+          "The Nintendo Switch is a video game console,",
+          "consisting of a console unit, a dock, and",
+          "two Joy-Con controllers.[88] Although it is a hy-",
+          "brid console, Nintendo classifies it as \"a home ",
+          "console that you can take with you on the go\"."
+  };
   public NintendoSwitch(){
     super(prodName, NintendoSwitchPrice, NintendoSwitchImage, NintendoSwitchScaledImage, detailNintendoSwitch);
     NintendoSwitchStock++;

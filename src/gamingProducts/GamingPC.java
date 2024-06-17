@@ -16,7 +16,16 @@ public class GamingPC extends Product {
   private static final int   expandedHeight = 525;
   private static final ImageIcon GamingPCImage = new ImageIcon("images/GamingPC.jpg");
   private static final ImageIcon GamingPCScaledImage = ImageIconScaler.scaleImageIcon(GamingPCImage, expandedWidth, expandedHeight);
-  private static final String[] detailGamingPC = {"This is THE top-notch gaming desktop ", "With the latest graphics card, the ", "Nvidia GeForce 4060 RTX, the ", "capabilities of this machine are truly ", "unbeatable!"};
+  private static final String[] detailGamingPC = {
+          "Game Without Compromise. Go Beyond",
+          "Performance With Intel Core Processors. | Intel",
+          "Core processors feature newly optimized hybrid",
+          "architecture and industry-leading technology",
+          "that enables you to go beyond gaming and",
+          "creation. With Intel, you can do it all. From",
+          "progressing in-game to advancing in real life,",
+          "Intel empowers you to be your best self."
+  };
   public GamingPC(){
     super(prodName, GamingPCPrice, GamingPCImage, GamingPCScaledImage, detailGamingPC);
     GamingPCStock++;

@@ -66,7 +66,7 @@ public class ProductDisplayFrame implements KeyListener {
               new CategoryDisplayFrame(ObjectCreation.getCategories());
               productDisplayFrame.setVisible(false);
               break;
-            case "cart view":
+            case "view cart":
               new CartViewFrame();
               productDisplayFrame.setVisible(false);
           }
