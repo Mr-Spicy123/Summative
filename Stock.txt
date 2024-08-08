@@ -1,30 +1,29 @@
-Xbox Series S:9
-Play Station 5:13
-Xbox Series X:8
-Gaming PC:14
+Xbox Series S:6
+Play Station 5:45
+Xbox Series X:15
+Gaming PC:13
 Nintendo Switch:13
-Oculus Quest 3:0
+Oculus Quest 3:12
 Flannel:0
-Jeans:6
-Nike Jacket:7
-Pajamas:13
+Jeans:0
+Nike Jacket:12
+Pajamas:12
 Shorts:12
-Sweater:12
-AirMax:9
+Sweater:0
+AirMax:2
 Dunks:13
-JordanOne:12
-NB550:14
+JordanOne:0
+NB550:13
 SwiftRun:12
 Bed:13
-Chair:9
 Couch:12
-Desk:12
+Desk:11
+Office Chair:15
 Dining Table:10
+Chair:10
 Dresser:14
-Chair:9
 Lego Set:12
 Transformer:12
-Rubik's Cube:8
+Rubik's Cube:3
 Monopoly:14
-Robot:10
-Office Chair:15
+Robot:0

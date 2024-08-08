@@ -35,7 +35,8 @@ public class RewriteFile {
     String[] allStocks = Reader.getArray(Reader.stockFile);
     int index;
     for (int i = 0; i < numLines; i++) {
-      if (allStocks[i].contains(prodName)) {
+      String[] line = allStocks[i].split(":");
+      if (line[0].equals(prodName)) {
         index = i;
         allStocks[index] = prodName + ":" + newStock;
         Writer.emptyFile(Writer.stockFile);

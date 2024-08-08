@@ -51,8 +51,8 @@ public class CartViewFrame {
           }
           switch (button.getText()) {
             case "back":
-              new CategoryDisplayFrame(ObjectCreation.getCategories());
               cartViewFrame.setVisible(false);
+              new CategoryDisplayFrame(ObjectCreation.getCategories());
               break;
             case "remove all":
               Cart.removeAllItems();
